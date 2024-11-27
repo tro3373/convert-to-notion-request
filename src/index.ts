@@ -1,7 +1,7 @@
 import express from 'express';
 import type { Request, Response } from 'express';
 
-export const app = express();
+const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());

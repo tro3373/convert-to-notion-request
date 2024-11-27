@@ -2,6 +2,7 @@
   "name": "convert-to-notion-request",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "nodemon src/index.ts",
     "build": "rm -rf dist && tsc",

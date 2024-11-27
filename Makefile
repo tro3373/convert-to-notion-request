@@ -42,4 +42,6 @@ login:
 
 deploy:
 	@vercel
+deploy-prod:
+	@vercel --prod
 
