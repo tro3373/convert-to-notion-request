@@ -15,3 +15,4 @@ app.get('/ping', (_req: Request, res: Response) => {
 app.listen(port, () => {
   console.log(`Server is listening on ${port}`);
 });
+module.exports = app;
