@@ -1,3 +1,12 @@
+## Tips
+
+- VercelのExampleは当てにならない(動かない)
+- `vercel dev` は dist配下しか見てない
+    - 自動再起動走るけどビルドが毎回必要
+- `vercel dev` する際は、express の listen してはいけない？
+- express で listen する場合は、3000以外じゃないといけない？
+
+
 ## Refs
 - [Deploy Node API (Express Typescript) on Vercel - DEV Community](https://dev.to/tirthpatel/deploy-node-ts-express-typescript-on-vercel-284h)
 

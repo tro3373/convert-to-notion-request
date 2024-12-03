@@ -2,7 +2,7 @@
   "name": "convert-to-notion-request",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
+  "_type": "module",
   "scripts": {
     "start": "nodemon src/index.ts",
     "build": "rm -rf dist && tsc",
@@ -19,6 +19,7 @@
   "devDependencies": {
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.0",
+    "@vercel/node": "^3.2.27",
     "nodemon": "^3.1.7",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"

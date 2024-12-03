@@ -22,10 +22,10 @@ build: npmi_if_needed
 	@npm run build
 
 run: npmi_if_needed # open_browser
-	# @vercel dev -d #-l 2999
-	# @npm run dev
-	# @npx ts-node --esm ./api/index.ts
 	@npm run start
+
+run-vercel-dev:
+	@vercel dev -d #-l 2999
 
 open_browser:
 	@local_url="http://$(shell ipa 2>/dev/null || echo localhost):3000" && \
