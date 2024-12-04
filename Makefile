@@ -7,6 +7,15 @@ dotenv := $(PWD)/.env
 
 export
 
+build: npmi_if_needed
+	@npm run build
+run: npmi_if_needed
+	@export START_LISTEN=1 && npm run start
+run-vercel-dev: npmi_if_needed build
+	@vercel dev -d -l 3000
+clean:
+	@rm -rf node_modules dist
+
 npmi:
 	@npm i
 npmi-%:
@@ -16,32 +25,22 @@ npmi_if_needed:
 		make npmi; \
 	fi
 
-clean:
-	@rm -rf node_modules
-build: npmi_if_needed
-	@npm run build
-
-run: npmi_if_needed # open_browser
-	@npm run start
-
-run-vercel-dev:
-	@vercel dev -d #-l 2999
-
-open_browser:
-	@local_url="http://$(shell ipa 2>/dev/null || echo localhost):3000" && \
-		open "$${local_url}" 2>/dev/null || echo "==> Open $${local_url} in your browser."
-
 setup:
 	@npm init -y
 	@npm i express
 	@npm i -D typescript @types/node @types/express ts-node nodemon
 	@npx tsc --init --rootDir src --outDir dist --esModuleInterop --resolveJsonModule --lib es6 --module commonjs --allowJs true --noImplicitAny true
 
-login:
-	@vercel login
 
-deploy:
+vercel-login:
+	@vercel login
+vercel-deploy:
 	@vercel
-deploy-prod:
+vercel-deploy-prod:
 	@vercel --prod
+
+
+open_browser:
+	@local_url="http://$(shell ipa 2>/dev/null || echo localhost):3000" && \
+		open "$${local_url}" 2>/dev/null || echo "==> Open $${local_url} in your browser."
 
