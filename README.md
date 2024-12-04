@@ -1,7 +1,7 @@
 ## TODO
 
-- [*] Disable listen call in main.js under vercel dev command or under vercel infra
-- [*] Add npm run build to vercel builds, and Fix vcs update not work in vercel
+- [x] Disable listen call in main.js under vercel dev command or under vercel infra
+- [x] Add npm run build to vercel builds, and Fix vcs update not work in vercel
 
 ## Tips
 
