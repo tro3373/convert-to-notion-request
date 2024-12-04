@@ -34,6 +34,8 @@ setup:
 
 vercel-login:
 	@vercel login
+# vercel-build:
+# 	@vercel build
 vercel-deploy:
 	@vercel
 vercel-deploy-prod:
