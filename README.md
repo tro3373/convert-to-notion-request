@@ -1,5 +1,19 @@
 ## TODO
 
+- [ ] Build Failed on vercel with git ignored `dist` directory
+    ```
+      "builds": [
+        {
+          "src": "dist/index.js",
+          "use": "@vercel/node",
+          "config": {
+            "includeFiles": [
+              "dist/**"
+            ]
+          }
+        }
+      ],
+    ```
 - [x] Disable listen call in main.js under vercel dev command or under vercel infra
 - [x] Add npm run build to vercel builds, and Fix vcs update not work in vercel
 
