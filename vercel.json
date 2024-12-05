@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "installCommand": "npm install",
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "builds": [
+  "_installCommand": "npm install",
+  "_buildCommand": "npm run build",
+  "_outputDirectory": "dist",
+  "_builds": [
     {
       "src": "dist/index.js",
       "use": "@vercel/node",
