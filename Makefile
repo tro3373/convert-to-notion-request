@@ -27,4 +27,5 @@ deploy-prod:
 
 open_browser:
 	@open "http://localhost:3000/api/hello"
+	@open "https://convert-to-notion-request.vercel.app/api/hello"
 

@@ -1,36 +1,10 @@
-## TODO
-
-- [ ] Build Failed on vercel with git ignored `dist` directory
-```
-{
-  "version": 2,
-  "installCommand": "npm install",
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "builds": [
-    {
-      "src": "dist/index.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": [
-          "dist/**"
-        ]
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "dist/index.js"
-    }
-  ]
-}
-```
-- [x] Disable listen call in main.js under vercel dev command or under vercel infra
-- [x] Add npm run build to vercel builds, and Fix vcs update not work in vercel
-
 ## Tips
 
+- vercel.json がややこしいので使わない
+    - vercel.json で buildCommand やら、buildsやら動作不明すぎて使わない
+        - [examples/solutions/node-hello-world](https://github.com/vercel/examples/tree/main/solutions/node-hello-world) から もってきた仕組み使えばOK
+        - tsconfigも不要
+        - vercel dev で開発して、vercelでデプロイ(またはPushで自動ビルドさせればいい)
 - VercelのExampleは当てにならない(動かない)
 - `vercel dev` は dist配下しか見てない
     - 自動再起動走るけどビルドが毎回必要
@@ -59,6 +33,39 @@
             - 3000は vercel dev が使うポート
             - vercel dev にポートを指定する
                 - `vercel dev -p 3001`
+
+## TODO
+
+- [x] Build Failed on vercel with git ignored `dist` directory
+    - vercel.json を用意せずデフォルトで動作させる
+    - 動かなかった vercel.json は以下
+        ```
+        {
+          "version": 2,
+          "installCommand": "npm install",
+          "buildCommand": "npm run build",
+          "outputDirectory": "dist",
+          "builds": [
+            {
+              "src": "dist/index.js",
+              "use": "@vercel/node",
+              "config": {
+                "includeFiles": [
+                  "dist/**"
+                ]
+              }
+            }
+          ],
+          "routes": [
+            {
+              "src": "/(.*)",
+              "dest": "dist/index.js"
+            }
+          ]
+        }
+        ```
+- [x] Disable listen call in main.js under vercel dev command or under vercel infra
+- [x] Add npm run build to vercel builds, and Fix vcs update not work in vercel
 
 ## Refs
 
