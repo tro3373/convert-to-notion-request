@@ -10,6 +10,15 @@ PATH := $(mkfile_dir)/bin:$(PATH)
 
 export
 
+zip:
+	@zip -r envs.zip \
+		./bin/curl_driver.env \
+		./bin/lib/curl_driver/req/app/do.json.copy \
+		./bin/lib/curl_driver/req/notion/post_new_magazine.json.copy
+unzip:
+	@test -e envs.zip
+	@unzip envs.zip
+
 run: npmi_if_needed open_browser
 	@vercel dev -d -l 3000
 clean:

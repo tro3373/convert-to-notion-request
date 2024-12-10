@@ -146,3 +146,4 @@ dist
 .trash
 bin/curl_driver.env
 bin/lib/curl_driver/req/*/*.copy
+/envs.zip
