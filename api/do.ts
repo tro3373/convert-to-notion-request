@@ -5,22 +5,19 @@ import { NodeHtmlMarkdown } from 'node-html-markdown';
 const handler = (req: VercelRequest, res: VercelResponse) => {
   console.info('==> Handler started: req.body:', req.body);
   const body = req.body || {};
-  let markdown = body.markdown || '**Hello _world_**';
-  const html = body.html;
+  const html = body.html || '<h1>Hello world</h1>';
   console.info(`==> Converting ${html ? 'HTML' : 'Markdown'}..`);
-  if (html) {
-    const nhm = new NodeHtmlMarkdown(
-      /* options (optional) */ {},
-      /* customTransformers (optional) */ undefined,
-      /* customCodeBlockTranslators (optional) */ undefined,
-    );
-    markdown = nhm.translate(html);
-    console.info(`==> HTML2Markdown! ==> markdown: 
+  const nhm = new NodeHtmlMarkdown(
+    /* options (optional) */ {},
+    /* customTransformers (optional) */ undefined,
+    /* customCodeBlockTranslators (optional) */ undefined,
+  );
+  const markdown = nhm.translate(html);
+  console.info(`==> HTML2Markdown! ==> markdown: 
 -- [Markdowned] -----------------------------------------------------------
 ${markdown}
 ---------------------------------------------------------------------------
 `);
-  }
   const option = {
     notionLimits: {
       truncate: false,

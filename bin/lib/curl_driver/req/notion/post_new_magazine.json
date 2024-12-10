@@ -1,0 +1,40 @@
+{
+  "parent": {
+    "database_id": "$notion_database_id"
+  },
+  "properties": {
+    "Name": {
+      "title": [
+        {
+          "text": {
+            "content": "テスト投稿してみる"
+          }
+        }
+      ]
+    }
+  },
+  "children": [
+    {
+      "object": "block",
+      "type": "heading_1",
+      "heading_1": {
+        "rich_text": [
+          {
+            "type": "text",
+            "annotations": {
+              "bold": false,
+              "strikethrough": false,
+              "underline": false,
+              "italic": false,
+              "code": false,
+              "color": "default"
+            },
+            "text": {
+              "content": "テスト"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

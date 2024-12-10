@@ -1,9 +1,12 @@
 SHELL := bash
+mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
+mkfile_dir := $(patsubst %/,%,$(dir $(mkfile_path)))
+PATH := $(mkfile_dir)/bin:$(PATH)
 .SHELLFLAGS := -eu -o pipefail -c # -c: Needed in .SHELLFLAGS. Default is -c.
 .DEFAULT_GOAL := run
 
-dotenv := $(PWD)/.env
--include $(dotenv)
+# dotenv := $(PWD)/.env
+# -include $(dotenv)
 
 export
 
@@ -26,6 +29,10 @@ deploy-prod:
 
 
 open_browser:
-	@open "http://localhost:3000/api/hello"
-	@open "https://convert-to-notion-request.vercel.app/api/hello"
+	@open "http://localhost:3000/api/do"
 
+open_browser-prd:
+	@open "https://convert-to-notion-request.vercel.app/api/do"
+
+curl_driver:
+	@curl_driver
