@@ -12,9 +12,9 @@ export
 
 zip:
 	@zip -r envs.zip \
-		./bin/curl_driver.env \
-		./bin/lib/curl_driver/req/app/do.json.copy \
-		./bin/lib/curl_driver/req/notion/post_new_magazine.json.copy
+		./bin/curl_test.env \
+		./bin/lib/curl_test/req/app/do.json.copy \
+		./bin/lib/curl_test/req/notion/post_new_magazine.json.copy
 unzip:
 	@test -e envs.zip
 	@unzip envs.zip
@@ -43,5 +43,5 @@ open_browser:
 open_browser-prd:
 	@open "https://convert-to-notion-request.vercel.app/api/do"
 
-curl_driver:
-	@curl_driver
+curl_test:
+	@curl_test
